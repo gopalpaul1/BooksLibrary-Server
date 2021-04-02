@@ -16,7 +16,7 @@ const port = 5045;
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.5mhw5.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 
 
-app.listen(port)
+app.listen(process.env.PORT || port)
 
 
 
