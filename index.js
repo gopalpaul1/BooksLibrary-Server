@@ -74,18 +74,18 @@ client.connect(err => {
 
 
     app.get('/orders', (req, res) => {
-        ordersCollection.find({})
+        ordersCollection.find({email: req.query.email})
         .toArray((err, documents ) => {
             res.send(documents);
         })
     })
 
-    app.get('/order/:email', (req, res) => {
-        ordersCollection.find({ email: req.query.email })
-        .toArray((err, documents) => {
-            res.send(documents[0]);
-        })
-    })
+    // app.get('/order/?email', (req, res) => {
+    //     ordersCollection.find({ email: req.query.email })
+    //     .toArray((err, documents) => {
+    //         res.send(documents[0]);
+    //     })
+    // })
     // app.get('order', (req, res) => {
     //     ordersCollection.find({})
     //     .toArray((err, documents) => {
