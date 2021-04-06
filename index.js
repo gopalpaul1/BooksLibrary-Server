@@ -81,7 +81,7 @@ client.connect(err => {
     })
 
     app.get('/order/:id', (req, res) => {
-        ordersCollection.find({ _id: ObjectId(req.params.id) })
+        ordersCollection.find({ _id: req.params.id })
         .toArray((err, documents) => {
             res.send(documents[0]);
         })
