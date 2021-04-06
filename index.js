@@ -73,7 +73,7 @@ client.connect(err => {
     })
 
 
-    app.get('order', (req, res) => {
+    app.get('orders', (req, res) => {
         ordersCollection.find({})
         .toArray((err, documents) => {
             res.send(documents);
