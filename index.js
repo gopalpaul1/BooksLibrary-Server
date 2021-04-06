@@ -72,17 +72,25 @@ client.connect(err => {
         })
     })
 
-    // app.get('order/:id', (req, res) => {
-    //     ordersCollection.find({ _id: ObjectId(req.params.id) })
-    //     .toArray((err, documents) => {
-    //         res.send(documents[0]);
-    //     })
-    // })
+
     app.get('order', (req, res) => {
         ordersCollection.find({})
         .toArray((err, documents) => {
-            res.send(documents[0])
+            res.send(documents);
         })
     })
+
+    app.get('order/:id', (req, res) => {
+        ordersCollection.find({ _id: ObjectId(req.params.id) })
+        .toArray((err, documents) => {
+            res.send(documents[0]);
+        })
+    })
+    // app.get('order', (req, res) => {
+    //     ordersCollection.find({})
+    //     .toArray((err, documents) => {
+    //         res.send(documents[0])
+    //     })
+    // })
 
 });
