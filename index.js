@@ -80,8 +80,8 @@ client.connect(err => {
         })
     })
 
-    app.get('/order/:id', (req, res) => {
-        ordersCollection.find({ _id: req.params.id })
+    app.get('/order/:email', (req, res) => {
+        ordersCollection.find({ email: req.query.email })
         .toArray((err, documents) => {
             res.send(documents[0]);
         })
