@@ -58,9 +58,7 @@ client.connect(err => {
         })
     })
 
-
-
-    
+  
   app.get('/', (req, res) => {
     res.send("Server waiting");
   })
@@ -71,6 +69,19 @@ client.connect(err => {
         ordersCollection.insertOne(order)
         .then(result => {
             res.send(result.insertedCount > 0)
+        })
+    })
+
+    // app.get('order/:id', (req, res) => {
+    //     ordersCollection.find({ _id: ObjectId(req.params.id) })
+    //     .toArray((err, documents) => {
+    //         res.send(documents[0]);
+    //     })
+    // })
+    app.get('order', (req, res) => {
+        ordersCollection.find({})
+        .toArray((err, documents) => {
+            res.send(documents[0])
         })
     })
 
